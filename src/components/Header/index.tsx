@@ -1,5 +1,5 @@
 import { HeaderContainer } from './styles'
-import logo from '../../assets/bsv.png'
+import logo from '../../assets/bsvcode.png'
 export function Header() {
   return (
     <HeaderContainer>

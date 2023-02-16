@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { Link } from 'react-router-dom'
 import media from 'styled-media-query'
 
 export const WrapperPublications = styled.div`
@@ -67,7 +68,7 @@ export const SearchFormContainer = styled.form`
     }
   `}
 `
-export const Posts = styled.div`
+export const ContainerPosts = styled.div`
   ${({ theme }) => css`
     margin-top: 48px;
     display: grid;
@@ -80,19 +81,24 @@ export const Posts = styled.div`
     `}
   `}
 `
-export const PostCards = styled.div`
+export const PostCards = styled(Link)`
   ${({ theme }) => css`
     width: 100%;
     height: auto;
     padding: 32px;
     border-radius: 8px;
     background-color: ${theme['base-post']};
+    text-decoration: none;
+    transition: opacity 0.5s;
     p {
       font-weight: 400;
       font-size: 16px;
       line-height: 160%;
       color: ${theme['base-text']};
       margin-top: 20px;
+    }
+    &:hover {
+      opacity: 0.7;
     }
   `}
 `

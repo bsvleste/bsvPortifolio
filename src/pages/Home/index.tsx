@@ -2,7 +2,7 @@ import { Container } from '../../components/Container'
 import { CardPerfil } from './components/CardPefil'
 import {
   PostCards,
-  Posts,
+  ContainerPosts,
   PostTitle,
   SearchFormContainer,
   WrapperPublications,
@@ -20,8 +20,8 @@ export function Home() {
         <input type="text" placeholder="Busque pelo post" />
         <button>Enviar</button>
       </SearchFormContainer>
-      <Posts>
-        <PostCards>
+      <ContainerPosts>
+        <PostCards to="/Post">
           <PostTitle>
             <h1>Javascript data type and dasdjlisakd kldsak ldsadkjsad</h1>
             <span>Há 1 dia</span>
@@ -36,7 +36,7 @@ export function Home() {
             dsadlkasjd ç~kaldk~sa lkd lsado idosadk salkd
           </p>
         </PostCards>
-        <PostCards>
+        <PostCards to="/Post">
           <PostTitle>
             <h1>Javascript data type and dasdjlisakd kldsak ldsadkjsad</h1>
             <span>Há 1 dia</span>
@@ -48,7 +48,7 @@ export function Home() {
             et, omnis, labore voluptas mollitia?
           </p>
         </PostCards>
-        <PostCards>
+        <PostCards to="Post">
           <PostTitle>
             <h1>Javascript data type and dasdjlisakd kldsak ldsadkjsad</h1>
             <span>Há 1 dia</span>
@@ -63,7 +63,7 @@ export function Home() {
             dsadlkasjd ç~kaldk~sa lkd lsado idosadk salkd
           </p>
         </PostCards>
-        <PostCards>
+        <PostCards to="Post">
           <PostTitle>
             <h1>Javascript data type and dasdjlisakd kldsak ldsadkjsad</h1>
             <span>Há 1 dia</span>
@@ -75,7 +75,7 @@ export function Home() {
             et, omnis, labore voluptas mollitia?
           </p>
         </PostCards>
-      </Posts>
+      </ContainerPosts>
     </Container>
   )
 }
