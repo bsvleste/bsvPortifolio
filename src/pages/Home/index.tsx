@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react'
 import { Container } from '../../components/Container'
+import { api } from '../../lib/api'
 import { CardPerfil } from './components/CardPefil'
+import ReactMarkdown from 'react-markdown'
 import {
   PostCards,
   ContainerPosts,
@@ -9,6 +12,15 @@ import {
 } from './styles'
 
 export function Home() {
+  const [userInfo, setUserInfo] = useState([])
+  async function getGitHubInfo() {
+    const response = await api.get('')
+    setUserInfo(response.data)
+    console.log(userInfo)
+  }
+  useEffect(() => {
+    getGitHubInfo()
+  }, [])
   return (
     <Container>
       <CardPerfil />
@@ -21,60 +33,18 @@ export function Home() {
         <button>Enviar</button>
       </SearchFormContainer>
       <ContainerPosts>
-        <PostCards to="/Post">
-          <PostTitle>
-            <h1>Javascript data type and dasdjlisakd kldsak ldsadkjsad</h1>
-            <span>Há 1 dia</span>
-          </PostTitle>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            tempora voluptatem saepe nesciunt ab modi accusamus pariatur,
-            tempore maxime ipsum harum distinctio vel voluptate exercitationem
-            et, omnis, labore voluptas mollitia?asdsla kdlçasddksa dk hd
-            sadsahhdksla dkljkd sakdklsa kdskajdk asjdkl sakjdddmlsa djas
-            djsadja sdjsa djkasdj kadjkdksa djkdjklsa jdkjadkjdkja kdjsad salç
-            dsadlkasjd ç~kaldk~sa lkd lsado idosadk salkd
-          </p>
-        </PostCards>
-        <PostCards to="/Post">
-          <PostTitle>
-            <h1>Javascript data type and dasdjlisakd kldsak ldsadkjsad</h1>
-            <span>Há 1 dia</span>
-          </PostTitle>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            tempora voluptatem saepe nesciunt ab modi accusamus pariatur,
-            tempore maxime ipsum harum distinctio vel voluptate exercitationem
-            et, omnis, labore voluptas mollitia?
-          </p>
-        </PostCards>
-        <PostCards to="Post">
-          <PostTitle>
-            <h1>Javascript data type and dasdjlisakd kldsak ldsadkjsad</h1>
-            <span>Há 1 dia</span>
-          </PostTitle>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            tempora voluptatem saepe nesciunt ab modi accusamus pariatur,
-            tempore maxime ipsum harum distinctio vel voluptate exercitationem
-            et, omnis, labore voluptas mollitia?asdsla kdlçasddksa dk hd
-            sadsahhdksla dkljkd sakdklsa kdskajdk asjdkl sakjdddmlsa djas
-            djsadja sdjsa djkasdj kadjkdksa djkdjklsa jdkjadkjdkja kdjsad salç
-            dsadlkasjd ç~kaldk~sa lkd lsado idosadk salkd
-          </p>
-        </PostCards>
-        <PostCards to="Post">
-          <PostTitle>
-            <h1>Javascript data type and dasdjlisakd kldsak ldsadkjsad</h1>
-            <span>Há 1 dia</span>
-          </PostTitle>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            tempora voluptatem saepe nesciunt ab modi accusamus pariatur,
-            tempore maxime ipsum harum distinctio vel voluptate exercitationem
-            et, omnis, labore voluptas mollitia?
-          </p>
-        </PostCards>
+        {userInfo &&
+          userInfo.map((infoUser) => (
+            <>
+              <PostCards to="/Post" key={userInfo.id}>
+                <PostTitle>
+                  <h1>{infoUser.title}</h1>
+                  <span>Há 1 dia</span>
+                </PostTitle>
+                <ReactMarkdown>{infoUser.body}</ReactMarkdown>
+              </PostCards>
+            </>
+          ))}
       </ContainerPosts>
     </Container>
   )

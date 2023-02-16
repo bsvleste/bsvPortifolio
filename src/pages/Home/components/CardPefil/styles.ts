@@ -16,7 +16,7 @@ export const ContainerPerfil = styled.div`
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 40px;
+    padding: 32px;
     `}
   `}
 `
