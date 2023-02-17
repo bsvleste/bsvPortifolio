@@ -1,69 +1,39 @@
-import { useCallback, useEffect, useState } from 'react'
 import { Container } from '../../components/Container'
-import { Spinner } from '../../components/Spinner'
-import { api } from '../../lib/api'
-import { relativeDateFormatter } from '../../utils/formatter'
-import { CardPerfil } from './components/CardPefil'
-import {
-  PostCards,
-  ContainerPosts,
-  PostTitle,
-  SearchFormContainer,
-  WrapperPublications,
-} from './styles'
-export interface PostProps {
-  title: string
-  body: string
-  created_at: string
-  number: number
-  html_url: string
-  comments: number
-  user: {
-    login: string
-  }
-}
+import { HomeHeader, HomeMenu, HomeSection } from './styles'
+import logoBsvCode from '../../assets/bsvcode.png'
+import fotoPerfil from '../../assets/fotoBruno.png'
+import { Link } from 'react-router-dom'
 export function Home() {
-  const [post, setPost] = useState<PostProps[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const getPosts = useCallback(async (query: string = '') => {
-    try {
-      setIsLoading(true)
-      const response = await api.get('/repos/bsvleste/bsvportifolio/issues')
-
-      setPost(response.data)
-    } finally {
-      setIsLoading(false)
-    }
-  }, [])
-  useEffect(() => {
-    getPosts()
-  }, [])
   return (
     <Container>
-      <CardPerfil />
-      <WrapperPublications>
-        <p>Publicações</p>
-        <span>6 Publicações</span>
-      </WrapperPublications>
-      <SearchFormContainer>
-        <input type="text" placeholder="Busque pelo post" />
-        <button>Enviar</button>
-      </SearchFormContainer>
-      <ContainerPosts>
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          post.map((infoUser, index) => (
-            <PostCards to={`/Post/${infoUser.number}`} key={index}>
-              <PostTitle>
-                <h1>{infoUser.title}</h1>
-                <span>{relativeDateFormatter(infoUser.created_at)}</span>
-              </PostTitle>
-              <p>{infoUser.body}</p>
-            </PostCards>
-          ))
-        )}
-      </ContainerPosts>
+      <HomeHeader>
+        <img src={logoBsvCode} alt="bsv code" />
+        <HomeMenu>
+          <Link to="">Blog</Link>
+          <Link to="">Contato</Link>
+          <Link to="">Sobre</Link>
+        </HomeMenu>
+      </HomeHeader>
+      <HomeSection>
+        <div>
+          <img src={fotoPerfil} alt="" />
+        </div>
+        <div>
+          <div>
+            <span>Olá, eu sou o</span>
+          </div>
+          <strong>Bruno de Souza Valeiro</strong>,
+          <div>
+            formado em Sistema de Informação e com habilidades em Produção
+            Gráfica. Além disso, estou sempre buscando aprimorar minhas
+            habilidades e conhecimentos. Meu portfólio reflete minha paixão por
+            tecnologia, design e criatividade. Aqui, você encontrará projetos
+            que demonstrem minha experiência e habilidades em desenvolvimento
+            web, design gráfico e produção de conteúdo visual.
+          </div>
+          <button>Ver Blog</button>
+        </div>
+      </HomeSection>
     </Container>
   )
 }
