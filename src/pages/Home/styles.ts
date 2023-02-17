@@ -30,6 +30,7 @@ export const SearchFormContainer = styled.form`
     margin-top: 24px;
     display: flex;
     gap: 1rem;
+    width: 100%;
     input {
       flex: 1;
       border-radius: 6px;
@@ -74,23 +75,32 @@ export const ContainerPosts = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     margin-bottom: 16px;
-    gap: 20px;
+    gap: 10px;
     ${media.greaterThan('medium')`
     grid-template-columns: 1fr 1fr;
-    gap:40px;
+    gap:10px;
     `}
   `}
 `
 export const PostCards = styled(Link)`
   ${({ theme }) => css`
     width: 100%;
-    height: auto;
-    padding: 32px;
+    padding: 1rem;
+    ${media.greaterThan('medium')`
+    padding: 0.5rem;
+    `}
     border-radius: 8px;
     background-color: ${theme['base-post']};
     text-decoration: none;
     transition: opacity 0.5s;
     p {
+      max-width: 300px;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
       font-weight: 400;
       font-size: 16px;
       line-height: 160%;

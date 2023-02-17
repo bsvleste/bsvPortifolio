@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Container } from '../../components/Container'
+import { Spinner } from '../../components/Spinner'
 import { api } from '../../lib/api'
+import { relativeDateFormatter } from '../../utils/formatter'
 import { CardPerfil } from './components/CardPefil'
-import ReactMarkdown from 'react-markdown'
 import {
   PostCards,
   ContainerPosts,
@@ -10,16 +11,32 @@ import {
   SearchFormContainer,
   WrapperPublications,
 } from './styles'
-
-export function Home() {
-  const [userInfo, setUserInfo] = useState([])
-  async function getGitHubInfo() {
-    const response = await api.get('')
-    setUserInfo(response.data)
-    console.log(userInfo)
+export interface PostProps {
+  title: string
+  body: string
+  created_at: string
+  number: number
+  html_url: string
+  comments: number
+  user: {
+    login: string
   }
+}
+export function Home() {
+  const [post, setPost] = useState<PostProps[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const getPosts = useCallback(async (query: string = '') => {
+    try {
+      setIsLoading(true)
+      const response = await api.get('/repos/bsvleste/bsvportifolio/issues')
+
+      setPost(response.data)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [])
   useEffect(() => {
-    getGitHubInfo()
+    getPosts()
   }, [])
   return (
     <Container>
@@ -33,18 +50,19 @@ export function Home() {
         <button>Enviar</button>
       </SearchFormContainer>
       <ContainerPosts>
-        {userInfo &&
-          userInfo.map((infoUser) => (
-            <>
-              <PostCards to="/Post" key={userInfo.id}>
-                <PostTitle>
-                  <h1>{infoUser.title}</h1>
-                  <span>Há 1 dia</span>
-                </PostTitle>
-                <ReactMarkdown>{infoUser.body}</ReactMarkdown>
-              </PostCards>
-            </>
-          ))}
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          post.map((infoUser, index) => (
+            <PostCards to={`/Post/${infoUser.number}`} key={index}>
+              <PostTitle>
+                <h1>{infoUser.title}</h1>
+                <span>{relativeDateFormatter(infoUser.created_at)}</span>
+              </PostTitle>
+              <p>{infoUser.body}</p>
+            </PostCards>
+          ))
+        )}
       </ContainerPosts>
     </Container>
   )
