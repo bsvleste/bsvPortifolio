@@ -1,6 +1,16 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+export const ContainerHome = styled.div`
+  width: min(100% - 15px, 840px);
+  margin-inline: auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+`
+
 export const HomeHeader = styled.header`
   ${({ theme }) => css`
     height: 150px;
@@ -32,38 +42,56 @@ export const HomeMenu = styled.nav`
     a {
       text-decoration: none;
       display: inline-block;
-      color: ${theme.blue};
+      color: ${theme['viva-magenta']};
       transition: color 0.2s;
       &:hover {
-        color: ${theme['blue-500']};
+        color: ${theme['viva-magenta-400']};
       }
     }
   `}
 `
 export const HomeSection = styled.section`
   ${({ theme }) => css`
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 100%;
-    div {
-      span {
-        color: ${theme.blue};
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-      strong {
-        font-size: 2rem;
-        font-weight: bold;
-      }
-      img {
-        width: 350px;
-        border-radius: 8px;
-      }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+      width: 350px;
+      border-radius: 8px;
+    }
+    span {
+      color: ${theme['viva-magenta']};
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    strong {
+      font-size: 2rem;
+      font-weight: bold;
     }
     ${media.greaterThan('medium')`
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-
+      flex-direction: row;
+      width:100%;
+      justify-content: space-between;
     `}
+  `}
+`
+export const ButtonBlog = styled.div`
+  ${({ theme }) => css`
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    height: 56px;
+    border-radius: 8px;
+    border: 2px solid ${theme['viva-magenta']};
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: ${theme['viva-magenta']};
+    }
   `}
 `

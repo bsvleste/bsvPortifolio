@@ -52,7 +52,7 @@ export const SearchFormContainer = styled.form`
       border: 0;
       padding: 1rem;
       background-color: transparent;
-      border: 1px solid ${theme.blue};
+      border: 1px solid ${theme['viva-magenta']};
       color: ${theme['base-title']};
       font-weight: bold;
       border-radius: 6px;
@@ -63,8 +63,8 @@ export const SearchFormContainer = styled.form`
         cursor: not-allowed;
       }
       &:not(:disabled):hover {
-        background-color: ${theme['blue-500']};
-        border: 1px solid ${theme['blue-500']};
+        background-color: ${theme['viva-magenta-400']};
+        border: 1px solid ${theme['viva-magenta-400']};
       }
     }
   `}

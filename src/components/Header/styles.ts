@@ -4,6 +4,6 @@ export const HeaderContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 250px;
+    padding: 32px;
   `}
 `

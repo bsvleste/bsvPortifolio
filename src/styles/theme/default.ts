@@ -1,6 +1,4 @@
 export const defaultTheme = {
-  blue: '#3294f8',
-  'blue-500': '#014E9C',
   'base-title': '#e7edf4',
   'base-text': '#AFC2D4',
   'base-input': '#040f1a',
@@ -10,4 +8,6 @@ export const defaultTheme = {
   'base-span': ' #7B96B2',
   'base-subtitle': '#C4D4E3',
   'base-post': '#112131',
+  'viva-magenta': '#BE3455',
+  'viva-magenta-400': '#FF809E',
 } as const

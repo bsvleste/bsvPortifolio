@@ -1,11 +1,21 @@
-import { Container } from '../../components/Container'
-import { HomeHeader, HomeMenu, HomeSection } from './styles'
+import { Link, useNavigate } from 'react-router-dom'
+import {
+  ButtonBlog,
+  ContainerHome,
+  HomeHeader,
+  HomeMenu,
+  HomeSection,
+} from './styles'
+import { PaperPlaneTilt } from 'phosphor-react'
 import logoBsvCode from '../../assets/bsvcode.png'
-import fotoPerfil from '../../assets/fotoBruno.png'
-import { Link } from 'react-router-dom'
+import fotoPerfil from '../../assets/bsvcoding.png'
 export function Home() {
+  const navigate = useNavigate()
+  function handleNavigationBlog() {
+    navigate('/blog')
+  }
   return (
-    <Container>
+    <ContainerHome>
       <HomeHeader>
         <img src={logoBsvCode} alt="bsv code" />
         <HomeMenu>
@@ -15,25 +25,20 @@ export function Home() {
         </HomeMenu>
       </HomeHeader>
       <HomeSection>
-        <div>
-          <img src={fotoPerfil} alt="" />
-        </div>
+        <img src={fotoPerfil} alt="" />
         <div>
           <div>
             <span>Olá, eu sou o</span>
           </div>
-          <strong>Bruno de Souza Valeiro</strong>,
+          <strong>Bruno de Souza Valeiro, </strong>
           <div>
-            formado em Sistema de Informação e com habilidades em Produção
-            Gráfica. Além disso, estou sempre buscando aprimorar minhas
-            habilidades e conhecimentos. Meu portfólio reflete minha paixão por
-            tecnologia, design e criatividade. Aqui, você encontrará projetos
-            que demonstrem minha experiência e habilidades em desenvolvimento
-            web, design gráfico e produção de conteúdo visual.
+            <span>Programador full stack Javascript</span>
           </div>
-          <button>Ver Blog</button>
+          <ButtonBlog onClick={handleNavigationBlog}>
+            Ver Blog <PaperPlaneTilt size={24} />
+          </ButtonBlog>
         </div>
       </HomeSection>
-    </Container>
+    </ContainerHome>
   )
 }

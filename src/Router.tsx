@@ -7,10 +7,10 @@ import { Post } from './pages/Posts'
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route index element={<Home />} />
       <Route path="/blog" element={<DefaultLayout />}>
-        <Route path="/blog" element={<Blog />} />
-        <Route path="blog/post/:id" element={<Post />} />
+        <Route index element={<Blog />} />
+        <Route path="post/:id" element={<Post />} />
       </Route>
     </Routes>
   )

@@ -16,13 +16,13 @@ export const ContainerLinks = styled.div`
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
-    color: ${theme.blue};
+    color: ${theme['viva-magenta']};
     a {
       display: flex;
       align-items: center;
       text-align: center;
       text-decoration: none;
-      color: ${theme.blue};
+      color: ${theme['viva-magenta']};
       font-style: normal;
       font-weight: 700;
       font-size: 14px;
@@ -66,12 +66,12 @@ export const ContainerPost = styled.div`
     width: 100%;
   }
   a {
-    color: ${({ theme }) => theme.blue};
+    color: ${({ theme }) => theme['viva-magenta']};
   }
   h1,
   h2,
   h3 {
-    color: ${({ theme }) => theme.blue};
+    color: ${({ theme }) => theme['viva-magenta']};
   }
   ul {
     list-style: inherit;

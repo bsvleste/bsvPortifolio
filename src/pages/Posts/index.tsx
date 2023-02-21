@@ -12,7 +12,6 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import { Container } from '../../components/Container'
 import { api } from '../../lib/api'
-import { PostProps } from '../Home'
 import {
   ContinerPostHeader,
   ContainerLinks,
@@ -21,6 +20,7 @@ import {
   ContainerPost,
 } from './styles'
 import { Spinner } from '../../components/Spinner'
+import { PostProps } from '../Blog'
 
 export function Post() {
   const [postData, setPostData] = useState<PostProps>({} as PostProps)
@@ -55,7 +55,7 @@ export function Post() {
         <>
           <ContinerPostHeader>
             <ContainerLinks>
-              <Link to="/">
+              <Link to="/blog">
                 <CaretLeft size={16} />
                 Voltar
               </Link>

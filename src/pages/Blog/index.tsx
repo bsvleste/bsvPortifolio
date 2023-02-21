@@ -54,7 +54,7 @@ export function Blog() {
           <Spinner />
         ) : (
           post.map((infoUser, index) => (
-            <PostCards to={`/Post/${infoUser.number}`} key={index}>
+            <PostCards to={`/blog/post/${infoUser.number}`} key={index}>
               <PostTitle>
                 <h1>{infoUser.title}</h1>
                 <span>{relativeDateFormatter(infoUser.created_at)}</span>
