@@ -37,7 +37,6 @@ export function Post() {
       )
 
       setPostData(response.data)
-      console.log(postData)
     } finally {
       setIsLoading(false)
     }

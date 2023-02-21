@@ -5,5 +5,8 @@ export const HeaderContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 32px;
+    img {
+      cursor: pointer;
+    }
   `}
 `

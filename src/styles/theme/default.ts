@@ -1,4 +1,5 @@
 export const defaultTheme = {
+  blue: '#3294F8',
   'base-title': '#e7edf4',
   'base-text': '#AFC2D4',
   'base-input': '#040f1a',

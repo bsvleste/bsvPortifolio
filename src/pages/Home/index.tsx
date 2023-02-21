@@ -1,7 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import {
   ButtonBlog,
-  ContainerHome,
+  ContainerHeader,
+  ContainerSection,
   HomeHeader,
   HomeMenu,
   HomeSection,
@@ -15,30 +16,33 @@ export function Home() {
     navigate('/blog')
   }
   return (
-    <ContainerHome>
-      <HomeHeader>
-        <img src={logoBsvCode} alt="bsv code" />
-        <HomeMenu>
-          <Link to="">Blog</Link>
-          <Link to="">Contato</Link>
-          <Link to="">Sobre</Link>
-        </HomeMenu>
-      </HomeHeader>
-      <HomeSection>
-        <img src={fotoPerfil} alt="" />
-        <div>
+    <>
+      <ContainerHeader>
+        <HomeHeader>
+          <img src={logoBsvCode} alt="bsv code" />
+          <HomeMenu>
+            <Link to="/blog">Blog</Link>
+            <Link to="/sobre">Sobre</Link>
+          </HomeMenu>
+        </HomeHeader>
+      </ContainerHeader>
+      <ContainerSection>
+        <HomeSection>
+          <img src={fotoPerfil} alt="" />
           <div>
-            <span>Olá, eu sou o</span>
+            <div>
+              <span>Olá, eu sou o</span>
+            </div>
+            <strong>Bruno de Souza Valeiro, </strong>
+            <div>
+              <span>Programador full stack Javascript</span>
+            </div>
+            <ButtonBlog onClick={handleNavigationBlog}>
+              Ver Blog <PaperPlaneTilt size={24} />
+            </ButtonBlog>
           </div>
-          <strong>Bruno de Souza Valeiro, </strong>
-          <div>
-            <span>Programador full stack Javascript</span>
-          </div>
-          <ButtonBlog onClick={handleNavigationBlog}>
-            Ver Blog <PaperPlaneTilt size={24} />
-          </ButtonBlog>
-        </div>
-      </HomeSection>
-    </ContainerHome>
+        </HomeSection>
+      </ContainerSection>
+    </>
   )
 }

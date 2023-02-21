@@ -1,24 +1,29 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const ContainerHome = styled.div`
+export const ContainerSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin-top: 120px;
   width: min(100% - 15px, 840px);
   margin-inline: auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
 `
-
+export const ContainerHeader = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+`
 export const HomeHeader = styled.header`
   ${({ theme }) => css`
-    height: 150px;
-    width: 100%;
+    width: min(100% - 15px, 840px);
+    margin-inline: auto;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    margin-top: 1rem;
     img {
       width: 148px;
       max-width: 100%;
@@ -27,18 +32,19 @@ export const HomeHeader = styled.header`
     img{
       width:300px;
       max-width: auto;
-      }
-    `}
+    }
+  `}
   `}
 `
 export const HomeMenu = styled.nav`
   ${({ theme }) => css`
-    width: 160px;
+    width: 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 32px;
     ${media.greaterThan('medium')`
-    width:200px;
-    `}
+  width:200px;
+  `}
     a {
       text-decoration: none;
       display: inline-block;
@@ -50,6 +56,7 @@ export const HomeMenu = styled.nav`
     }
   `}
 `
+
 export const HomeSection = styled.section`
   ${({ theme }) => css`
     display: flex;

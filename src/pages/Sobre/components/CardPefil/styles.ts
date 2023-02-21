@@ -66,15 +66,3 @@ export const ContainerHeader = styled.div`
     `}
   `}
 `
-
-export const WrapperSocialMedia = styled.div`
-  ${({ theme }) => css`
-    margin-top: 8px;
-    a {
-      color: ${theme['base-label']};
-    }
-    width: 90px;
-    display: flex;
-    justify-content: space-between;
-  `}
-`
