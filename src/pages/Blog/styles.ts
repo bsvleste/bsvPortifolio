@@ -127,7 +127,11 @@ export const PostTitle = styled.div`
     }
     span {
       font-weight: 400;
+      font-size: 10px;
+      ${media.greaterThan('medium')`
       font-size: 12px;
+
+      `}
       line-height: 160%;
       color: ${theme['base-span']};
     }

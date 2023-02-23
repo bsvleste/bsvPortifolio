@@ -31,7 +31,6 @@ export function Blog() {
       const response = await api.get(
         `search/issues?q=label:published%20repo:bsvleste/bsvportifolio`,
       )
-      console.log(response.data)
       setPost(response.data.items)
     } finally {
       setIsLoading(false)
@@ -46,10 +45,10 @@ export function Blog() {
         <p>Publicações</p>
         <span>{postLenght} Publicações</span>
       </WrapperPublications>
-      <SearchFormContainer>
+      {/* <SearchFormContainer>
         <input type="text" placeholder="Busque pelo post" />
         <button>Enviar</button>
-      </SearchFormContainer>
+      </SearchFormContainer> */}
       <ContainerPosts>
         {isLoading ? (
           <Spinner />
