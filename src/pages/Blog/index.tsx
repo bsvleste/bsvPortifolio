@@ -28,8 +28,11 @@ export function Blog() {
   const getPosts = useCallback(async (query: string = '') => {
     try {
       setIsLoading(true)
-      const response = await api.get('/repos/bsvleste/bsvportifolio/issues')
-      setPost(response.data)
+      const response = await api.get(
+        `search/issues?q=label:published%20repo:bsvleste/bsvportifolio`,
+      )
+      console.log(response.data)
+      setPost(response.data.items)
     } finally {
       setIsLoading(false)
     }
