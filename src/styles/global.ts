@@ -9,9 +9,6 @@ export const GlobalStyle = createGlobalStyle`
           outline: 0;
           box-shadow: 0 0 2px ${(props) => props.theme.blue};
         }
-        html,body{
-          height: 100%;
-        }
         body {
           background-color: ${(props) => props.theme['base-background']};
           color: ${(props) => props.theme['base-title']};

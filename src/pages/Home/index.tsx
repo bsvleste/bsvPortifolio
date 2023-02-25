@@ -1,11 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom'
 import {
   ButtonBlog,
-  ContainerHeader,
+  ContainerHome,
   ContainerSection,
   HomeHeader,
   HomeMenu,
   HomeSection,
+  SectionInfo,
 } from './styles'
 import { PaperPlaneTilt } from 'phosphor-react'
 import logoBsvCode from '../../assets/bsvcode.png'
@@ -16,20 +17,18 @@ export function Home() {
     navigate('/blog')
   }
   return (
-    <>
-      <ContainerHeader>
-        <HomeHeader>
-          <img src={logoBsvCode} alt="bsv code" />
-          <HomeMenu>
-            <Link to="/blog">Blog</Link>
-            <Link to="/sobre">Sobre</Link>
-          </HomeMenu>
-        </HomeHeader>
-      </ContainerHeader>
+    <ContainerHome>
+      <HomeHeader>
+        <img src={logoBsvCode} alt="bsv code" />
+        <HomeMenu>
+          <Link to="/blog">Blog</Link>
+          <Link to="/sobre">Sobre</Link>
+        </HomeMenu>
+      </HomeHeader>
       <ContainerSection>
         <HomeSection>
           <img src={fotoPerfil} alt="" />
-          <div>
+          <SectionInfo>
             <div>
               <span>Olá, eu sou o</span>
             </div>
@@ -40,9 +39,9 @@ export function Home() {
             <ButtonBlog onClick={handleNavigationBlog}>
               Ver Blog <PaperPlaneTilt size={24} />
             </ButtonBlog>
-          </div>
+          </SectionInfo>
         </HomeSection>
       </ContainerSection>
-    </>
+    </ContainerHome>
   )
 }

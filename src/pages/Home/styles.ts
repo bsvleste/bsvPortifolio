@@ -1,29 +1,23 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const ContainerSection = styled.div`
+export const ContainerHome = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 80vh;
-  margin-top: 120px;
-  width: min(100% - 15px, 840px);
-  margin-inline: auto;
-`
-export const ContainerHeader = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-left: 8px;
+  margin-right: 8px;
 `
 export const HomeHeader = styled.header`
   ${({ theme }) => css`
-    width: min(100% - 15px, 840px);
-    margin-inline: auto;
-    height: 80px;
     display: flex;
+    align-items: baseline;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
+    max-width: 840px;
+    padding: 2rem 0;
+    width: 100%;
     img {
       width: 148px;
       max-width: 100%;
@@ -56,18 +50,34 @@ export const HomeMenu = styled.nav`
     }
   `}
 `
-
-export const HomeSection = styled.section`
+export const ContainerSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 840px;
+  margin-top: 8px;
+  img {
+    width: 100%;
+  }
+  ${media.greaterThan('medium')`
+    margin-top:40PX;
+  img {
+    width: 450px;
+  }
+  `}
+`
+export const HomeSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
   ${({ theme }) => css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    ${media.greaterThan('medium')`
+    flex-direction: row;
+    align-items: flex-end;
 
-    img {
-      width: 350px;
-      border-radius: 8px;
-    }
+  `}
     span {
       color: ${theme['viva-magenta']};
       font-size: 1.5rem;
@@ -77,16 +87,12 @@ export const HomeSection = styled.section`
       font-size: 2rem;
       font-weight: bold;
     }
-    ${media.greaterThan('medium')`
-      flex-direction: row;
-      width:100%;
-      justify-content: space-between;
-    `}
   `}
 `
+export const SectionInfo = styled.div``
 export const ButtonBlog = styled.div`
   ${({ theme }) => css`
-    margin-top: 60px;
+    margin-top: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,5 +106,52 @@ export const ButtonBlog = styled.div`
     &:hover {
       background-color: ${theme['viva-magenta']};
     }
+    ${media.greaterThan('medium')`
+      margin-top:60px;
+      margin-bottom:38px;
+      ;
+    `}
   `}
 `
+/*
+export const HomeSection = styled.section`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    ${media.greaterThan('medium')`
+    height: 500px;
+    flex-direction: row;
+    width:100%;
+      align-items: flex-end;
+      justify-content: space-between;
+    `}
+    span {
+      color: ${theme['viva-magenta']};
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    strong {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  `}
+`
+
+` */
+
+/* import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
+
+
+export const ContainerHeader = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+`
+
+
+ */
