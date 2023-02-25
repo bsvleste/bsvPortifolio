@@ -15,7 +15,7 @@ export const HomeHeader = styled.header`
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    max-width: 840px;
+    max-width: 1180px;
     padding: 2rem 0;
     width: 100%;
     img {
