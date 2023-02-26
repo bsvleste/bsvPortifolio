@@ -55,22 +55,22 @@ export const ContainerSection = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 840px;
+  max-width: 1180px;
   margin-top: 8px;
   img {
     width: 100%;
   }
-  ${media.greaterThan('medium')`
+  ${media.greaterThan('small')`
     margin-top:40PX;
   img {
-    width: 450px;
+    width: 500px;
   }
   `}
 `
 export const HomeSection = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 1180px;
   justify-content: space-between;
   ${({ theme }) => css`
     ${media.greaterThan('medium')`
@@ -81,6 +81,9 @@ export const HomeSection = styled.div`
     span {
       color: ${theme['viva-magenta']};
       font-size: 1.5rem;
+      ${media.greaterThan('medium')`
+      font-size: 2.5rem;
+      `}
       font-weight: bold;
     }
     strong {
@@ -89,7 +92,11 @@ export const HomeSection = styled.div`
     }
   `}
 `
-export const SectionInfo = styled.div``
+export const SectionInfo = styled.div`
+  ${media.greaterThan('medium')`
+  width: 40%;
+  `}
+`
 export const ButtonBlog = styled.div`
   ${({ theme }) => css`
     margin-top: 18px;
