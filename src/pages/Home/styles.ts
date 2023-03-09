@@ -6,21 +6,21 @@ export const ContainerHome = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   margin-left: 8px;
   margin-right: 8px;
 `
 export const HomeHeader = styled.header`
   ${({ theme }) => css`
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     max-width: 1180px;
     padding: 2rem 0;
     width: 100%;
     img {
       width: 148px;
-      max-width: 100%;
+      max-width: auto;
     }
     ${media.greaterThan('medium')`
     img{
@@ -37,7 +37,7 @@ export const HomeMenu = styled.nav`
     justify-content: flex-end;
     gap: 32px;
     ${media.greaterThan('medium')`
-  width:200px;
+      width:200px;
   `}
     a {
       text-decoration: none;
@@ -62,7 +62,7 @@ export const ContainerSection = styled.div`
   }
   ${media.greaterThan('small')`
     margin-top:40PX;
-  img {
+   img {
     width: 500px;
   }
   `}
@@ -78,28 +78,29 @@ export const HomeSection = styled.div`
     align-items: flex-end;
 
   `}
+  `}
+`
+export const SectionInfo = styled.div`
+  ${({ theme }) => css`
     span {
       color: ${theme['viva-magenta']};
-      font-size: 1.5rem;
+      font-size: 2rem;
       ${media.greaterThan('medium')`
-      font-size: 2.5rem;
-      `}
+    font-size: 1.5rem;
+    `}
       font-weight: bold;
     }
     strong {
       font-size: 2rem;
       font-weight: bold;
     }
+    ${media.greaterThan('medium')`
+      width: 40%;
   `}
-`
-export const SectionInfo = styled.div`
-  ${media.greaterThan('medium')`
-  width: 40%;
   `}
 `
 export const ButtonBlog = styled.div`
   ${({ theme }) => css`
-    margin-top: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,45 +121,3 @@ export const ButtonBlog = styled.div`
     `}
   `}
 `
-/*
-export const HomeSection = styled.section`
-  ${({ theme }) => css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    ${media.greaterThan('medium')`
-    height: 500px;
-    flex-direction: row;
-    width:100%;
-      align-items: flex-end;
-      justify-content: space-between;
-    `}
-    span {
-      color: ${theme['viva-magenta']};
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    strong {
-      font-size: 2rem;
-      font-weight: bold;
-    }
-  `}
-`
-
-` */
-
-/* import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
-
-
-export const ContainerHeader = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-
-`
-
-
- */

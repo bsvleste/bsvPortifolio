@@ -14,14 +14,14 @@ import fotoPerfil from '../../assets/bsvcoding.png'
 export function Home() {
   const navigate = useNavigate()
   function handleNavigationBlog() {
-    navigate('/blog')
+    navigate('/portfolio')
   }
   return (
     <ContainerHome>
       <HomeHeader>
         <img src={logoBsvCode} alt="bsv code" />
         <HomeMenu>
-          <Link to="/blog">Blog</Link>
+          <Link to="/portfolio">Portfolio</Link>
           <Link to="/sobre">Sobre</Link>
         </HomeMenu>
       </HomeHeader>
@@ -37,7 +37,7 @@ export function Home() {
               <span>Programador full stack Javascript</span>
             </div>
             <ButtonBlog onClick={handleNavigationBlog}>
-              Ver Blog <PaperPlaneTilt size={24} />
+              Portfolio <PaperPlaneTilt size={24} />
             </ButtonBlog>
           </SectionInfo>
         </HomeSection>

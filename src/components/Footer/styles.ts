@@ -3,7 +3,7 @@ export const ContainerFooter = styled.div`
   width: 100%;
 `
 export const WrapperFooter = styled.footer`
-  width: min(100% - 15px, 840px);
+  width: min(100% - 15px, 1180px);
   margin-inline: auto;
   height: 80px;
   display: flex;
@@ -14,6 +14,10 @@ export const WrapperSocialMedia = styled.div`
   ${({ theme }) => css`
     margin-top: 8px;
     gap: 30px;
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     div {
       display: flex;
       gap: 8px;
@@ -24,8 +28,5 @@ export const WrapperSocialMedia = styled.div`
     a {
       color: ${theme['base-label']};
     }
-    width: 90px;
-    display: flex;
-    justify-content: space-between;
   `}
 `

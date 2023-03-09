@@ -7,7 +7,6 @@ import {
   PostCards,
   ContainerPosts,
   PostTitle,
-  SearchFormContainer,
   WrapperPublications,
 } from './styles'
 export interface PostProps {
@@ -18,10 +17,10 @@ export interface PostProps {
   html_url: string
   comments: number
   user: {
-    login: string
+    html_url: string
   }
 }
-export function Blog() {
+export function Portfolio() {
   const [post, setPost] = useState<PostProps[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const postLenght = post.length || 0
@@ -54,7 +53,7 @@ export function Blog() {
           <Spinner />
         ) : (
           post.map((infoUser, index) => (
-            <PostCards to={`/blog/post/${infoUser.number}`} key={index}>
+            <PostCards to={`/portfolio/post/${infoUser.number}`} key={index}>
               <PostTitle>
                 <h1>{infoUser.title}</h1>
                 <span>{relativeDateFormatter(infoUser.created_at)}</span>

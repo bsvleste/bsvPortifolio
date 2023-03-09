@@ -1,12 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import {
-  ArrowSquareOut,
-  CalendarBlank,
-  CaretLeft,
-  ChatTeardropText,
-  GithubLogo,
-} from 'phosphor-react'
+import { ArrowSquareOut, CaretLeft } from 'phosphor-react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
@@ -16,11 +10,10 @@ import {
   ContinerPostHeader,
   ContainerLinks,
   ContainerTitle,
-  ContainerMediaSocial,
   ContainerPost,
 } from './styles'
 import { Spinner } from '../../components/Spinner'
-import { PostProps } from '../Blog'
+import { PostProps } from '../Portfolio'
 
 export function Post() {
   const [postData, setPostData] = useState<PostProps>({} as PostProps)
@@ -35,7 +28,7 @@ export function Post() {
       const response = await api.get(
         `/repos/bsvleste/bsvportifolio/issues/${id}`,
       )
-
+      console.log(response.data)
       setPostData(response.data)
     } finally {
       setIsLoading(false)
@@ -54,32 +47,18 @@ export function Post() {
         <>
           <ContinerPostHeader>
             <ContainerLinks>
-              <Link to="/blog">
+              <Link to="/portfolio">
                 <CaretLeft size={16} />
                 Voltar
               </Link>
 
-              <Link to="https://github.com/bsvcode85">
+              <Link to={postData?.user?.html_url} target="_blank">
                 ver no github
                 <ArrowSquareOut size={16} />
               </Link>
             </ContainerLinks>
             <ContainerTitle>
               <h1>{postData.title}</h1>
-              <ContainerMediaSocial>
-                <div>
-                  <GithubLogo size={24} />
-                  <span>BsvLeste</span>
-                </div>
-                <div>
-                  <CalendarBlank size={24} />
-                  <span>Há 1 dia</span>
-                </div>
-                <div>
-                  <ChatTeardropText size={24} />
-                  <span>Há 1 dia</span>
-                </div>
-              </ContainerMediaSocial>
             </ContainerTitle>
           </ContinerPostHeader>
           <ContainerPost>

@@ -76,10 +76,10 @@ export const ContainerPosts = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     margin-bottom: 16px;
-    gap: 10px;
+    row-gap: 10px;
     ${media.greaterThan('medium')`
     grid-template-columns: 1fr 1fr;
-    gap:10px;
+    gap:32px;
     `}
   `}
 `
@@ -111,6 +111,11 @@ export const PostCards = styled(Link)`
     &:hover {
       opacity: 0.7;
     }
+    ${media.greaterThan('small')`
+      p{
+        max-width:83%;
+      }
+    `}
   `}
 `
 export const PostTitle = styled.div`
