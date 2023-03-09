@@ -57,6 +57,7 @@ export const ContainerSection = styled.div`
   width: 100%;
   max-width: 1180px;
   margin-top: 8px;
+  margin-bottom: 18px;
   img {
     width: 100%;
   }
@@ -82,20 +83,31 @@ export const HomeSection = styled.div`
 `
 export const SectionInfo = styled.div`
   ${({ theme }) => css`
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     span {
       color: ${theme['viva-magenta']};
-      font-size: 2rem;
-      ${media.greaterThan('medium')`
-    font-size: 1.5rem;
-    `}
-      font-weight: bold;
+      font-size: 1.25rem;
     }
     strong {
-      font-size: 2rem;
-      font-weight: bold;
+      font-size: 1.5rem;
     }
     ${media.greaterThan('medium')`
-      width: 40%;
+      width: 45%;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      span {
+      font-size: 2rem;
+    }
+    strong {
+      font-size: 2.5rem;
+
+    }
   `}
   `}
 `
@@ -108,11 +120,11 @@ export const ButtonBlog = styled.div`
     width: 100%;
     height: 56px;
     border-radius: 8px;
-    border: 2px solid ${theme['viva-magenta']};
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin-top: 32px;
+    background-color: ${theme['viva-magenta']};
     &:hover {
-      background-color: ${theme['viva-magenta']};
+      filter: brightness(120%);
     }
     ${media.greaterThan('medium')`
       margin-top:60px;
