@@ -1,10 +1,10 @@
+import { Container } from '../../components/Container'
 import { CardPerfil } from './components/CardPefil'
-import { ContainerSobre } from './styles'
 
 export function Sobre() {
   return (
-    <ContainerSobre>
+    <Container>
       <CardPerfil />
-    </ContainerSobre>
+    </Container>
   )
 }

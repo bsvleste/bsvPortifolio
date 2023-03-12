@@ -11,4 +11,5 @@ export const defaultTheme = {
   'base-post': '#112131',
   'viva-magenta': '#BE3455',
   'viva-magenta-400': '#FF809E',
+  container: '1180px',
 } as const
